@@ -1,0 +1,31 @@
+using Adherium.Api.Shared.Infra;
+using FastEndpoints;
+using FastEndpoints.Security;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddOpenApi();
+builder.Services.AddFastEndpoints();
+builder.Services.AddAuthenticationJwtBearer(o => o.SigningKey = builder.Configuration["Jwt:SigningKey"]!)
+    .AddAuthorization();
+
+builder.Services.AddSingleton<IEventRepository, InMemoryRepository>();
+builder.Services.AddSingleton<IPatientRepository, InMemoryRepository>();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+}
+
+app.UseHttpsRedirection();
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseFastEndpoints();
+app.Run();
+
+namespace Adherium.Api
+{
+    public partial class Program; // required to make partial class accessible to xUnit 
+}
