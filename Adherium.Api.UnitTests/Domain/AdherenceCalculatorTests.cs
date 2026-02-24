@@ -1,4 +1,4 @@
-using Adherium.Api.Shared.Domain;
+using Adherium.Domain.Treatments;
 using Shouldly;
 
 namespace Adherium.Api.UnitTests.Domain;
@@ -6,13 +6,17 @@ namespace Adherium.Api.UnitTests.Domain;
 public class AdherenceCalculatorTests
 {
     private static readonly DateTime Today = new(2024, 1, 15, 12, 0, 0);
-    private static readonly Guid PatientId = Guid.NewGuid();
-    private static readonly Guid DeviceId = Guid.NewGuid();
 
-    private static Event CreatePuff(DateTime timestamp) =>
-        new(Guid.NewGuid(), PatientId, DeviceId, timestamp, EventType.PuffInhaled);
+    private static TreatmentEvent CreatePuff(DateTime timestamp) =>
+        new()
+        {
+            Id = Guid.NewGuid(),
+            TreatmentId = Guid.NewGuid(),
+            Timestamp = timestamp,
+            Type = EventType.PuffInhaled,
+        };
 
-    private static List<Event> CreatePuffs(DateTime day, int count) =>
+    private static List<TreatmentEvent> CreatePuffs(DateTime day, int count) =>
         Enumerable.Range(0, count)
             .Select(i => CreatePuff(day.AddMinutes(i)))
             .ToList();
@@ -105,7 +109,7 @@ public class AdherenceCalculatorTests
     public void CalculateScore_EachPuffIncreasesScore()
     {
         // Arrange
-        var events = new List<Event>();
+        var events = new List<TreatmentEvent>();
         var previousScore = 0m;
 
         // Act & Assert
@@ -143,7 +147,7 @@ public class AdherenceCalculatorTests
     public void CalculateScore_NoEvents_ReturnsZero()
     {
         // Arrange
-        var events = new List<Event>();
+        var events = new List<TreatmentEvent>();
 
         // Act
         var score = AdherenceCalculator.CalculateScore(events, Today);

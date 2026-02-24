@@ -1,8 +1,8 @@
-﻿using Adherium.Api.Shared.Domain;
+﻿using Adherium.Domain.Treatments;
 using FastEndpoints;
 using FluentValidation;
 
-namespace Adherium.Api.Features.SendEvents;
+namespace Adherium.Api.Features.Treatment.SendUsageEvents;
 
 public class Validator : Validator<Request>
 {

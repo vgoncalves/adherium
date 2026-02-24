@@ -1,4 +1,3 @@
-using Adherium.Api.Shared.Infra;
 using FastEndpoints;
 using FastEndpoints.Security;
 
@@ -9,8 +8,8 @@ builder.Services.AddFastEndpoints();
 builder.Services.AddAuthenticationJwtBearer(o => o.SigningKey = builder.Configuration["Jwt:SigningKey"]!)
     .AddAuthorization();
 
-builder.Services.AddSingleton<IEventRepository, InMemoryRepository>();
-builder.Services.AddSingleton<IPatientRepository, InMemoryRepository>();
+//Add Db Context with SQLite
+
 
 var app = builder.Build();
 

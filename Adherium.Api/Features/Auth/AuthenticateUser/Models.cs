@@ -1,4 +1,4 @@
-namespace Adherium.Api.Features.Authenticate;
+namespace Adherium.Api.Features.Auth.AuthenticateUser;
 
 public record Request(string Email, string Password);
 

@@ -2,9 +2,8 @@
 using System.Net;
 using System.Security.Claims;
 using System.Text.Json;
-using Adherium.Api.Features.Authenticate;
-using Adherium.Api.Shared.Domain;
-using Adherium.Api.Shared.Infra;
+using Adherium.Api.Features.Auth.AuthenticateUser;
+using Adherium.Infra;
 using FastEndpoints;
 using Shouldly;
 

@@ -1,16 +1,17 @@
-﻿namespace Adherium.Api.Features.SendEvents;
+﻿namespace Adherium.Api.Features.Treatment.SendUsageEvents;
 
 public record Request(List<Request.Event> Events)
 {
     public record Event(
+        Guid TreatmentId,
         Guid EventId,
-        DateTime Timestamp,
         Guid DeviceId, 
+        DateTime Timestamp,
+        
         string EventType
     );
 }
 
 public record Response(
-    decimal AdherenceScore,
     IEnumerable<Guid> ProcessedEventIds
 );

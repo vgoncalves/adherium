@@ -1,5 +1,5 @@
 <Solution>
-  <Project Path="Adherium.Api.IntegrationTests\Adherium.Api.IntegrationTests.csproj" Type="Classic C#" />
-  <Project Path="Adherium.Api.UnitTests\Adherium.Api.UnitTests.csproj" Type="Classic C#" />
   <Project Path="Adherium.Api\Adherium.Api.csproj" Type="Classic C#" />
+  <Project Path="Adherium.EmailSender\Adherium.EmailSender.csproj" Type="Classic C#" />
+  <Project Path="Adherium\Adherium.csproj" Type="Classic C#" />
 </Solution>

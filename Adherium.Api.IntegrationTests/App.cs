@@ -1,6 +1,6 @@
 using System.Net.Http.Headers;
-using Adherium.Api.Features.Authenticate;
-using Adherium.Api.Shared.Infra;
+using Adherium.Api.Features.Auth.AuthenticateUser;
+using Adherium.Infra;
 using FastEndpoints;
 using FastEndpoints.Testing;
 

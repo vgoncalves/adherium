@@ -1,7 +1,7 @@
 using FastEndpoints;
 using FluentValidation;
 
-namespace Adherium.Api.Features.Authenticate;
+namespace Adherium.Api.Features.Auth.AuthenticateUser;
 
 public class Validator : Validator<Request>
 {

@@ -1,19 +1,27 @@
 using System.Globalization;
 using System.Security.Claims;
 using System.Text.Json;
+using Adherium.Domain.Auth;
+using Adherium.Domain.Onboarding;
 
 namespace Adherium.Api.Shared;
 
 public static class ClaimsPrincipalExtensions
 {
-    public static Patient AsPatient(this ClaimsPrincipal principal)
+    public static User Map(this ClaimsPrincipal principal)
     {
         var id = Guid.Parse(principal.FindFirstValue(ClaimTypes.NameIdentifier)!);
         var name = principal.FindFirstValue(ClaimTypes.Name)!;
         var email = principal.FindFirstValue(ClaimTypes.Email)!;
-        
-        var deviceIds = JsonSerializer.Deserialize<List<Guid>>(principal.FindFirstValue(nameof(Patient.DeviceIds))!)!;
+        var role = Enum.Parse<UserRole>(principal.FindFirstValue(ClaimTypes.Role)!);
 
-        return new Patient(id, name, email, Password: string.Empty, deviceIds);
+        return new User()
+        {
+            Id = id,
+            Name = name,
+            Email = email,
+            PasswordHash = "",
+            UserRole = role
+        };
     }
 }
