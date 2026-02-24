@@ -1,5 +1,4 @@
 <Solution>
   <Project Path="Adherium.Api\Adherium.Api.csproj" Type="Classic C#" />
-  <Project Path="Adherium.EmailSender\Adherium.EmailSender.csproj" Type="Classic C#" />
   <Project Path="Adherium\Adherium.csproj" Type="Classic C#" />
 </Solution>
