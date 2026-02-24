@@ -2,7 +2,7 @@
 using Azure.Messaging.ServiceBus;
 using Microsoft.Azure.Functions.Worker;
 
-namespace Adherium.EmailSender;
+namespace Adherium.Functions.Mailing;
 
 public class WelcomeEmailSender
 {

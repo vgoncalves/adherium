@@ -7,7 +7,7 @@ using FastEndpoints;
 
 namespace Adherium.Api.Features.Onboarding.RegisterPatient;
 
-public class Endpoint(AppDb db, IEventPublisher eventPublisher) : Endpoint<Request>
+public class Endpoint(AppDb db, EventPublisher eventPublisher) : Endpoint<Request>
 {
     public override void Configure()
     {

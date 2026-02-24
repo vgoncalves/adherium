@@ -2,7 +2,7 @@
 using FastEndpoints;
 using FluentValidation;
 
-namespace Adherium.Api.Features.Treatment.SendUsageEvents;
+namespace Adherium.Api.Features.Treatments.SendEvents;
 
 public class Validator : Validator<Request>
 {

@@ -1,13 +1,11 @@
-﻿namespace Adherium.Api.Features.Treatment.SendUsageEvents;
+﻿namespace Adherium.Api.Features.Treatments.SendEvents;
 
-public record Request(List<Request.Event> Events)
+public record Request(Guid TreatmentId, List<Request.Event> Events)
 {
     public record Event(
-        Guid TreatmentId,
         Guid EventId,
         Guid DeviceId, 
         DateTime Timestamp,
-        
         string EventType
     );
 }
