@@ -18,10 +18,4 @@
       <ProjectReference Include="..\Adherium\Adherium.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Features\Auth\ResetPassword\" />
-      <Folder Include="Features\Onboarding\RegisterDevice\" />
-      <Folder Include="Features\Treatments\StartTreatment\" />
-    </ItemGroup>
-
 </Project>

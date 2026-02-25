@@ -1,11 +1,9 @@
-﻿using Adherium.Domain;
-using Adherium.Domain.Auth;
-using Adherium.Domain.Onboarding;
-using Adherium.Domain.Onboarding.Events;
+﻿using Adherium.Domain.Auth;
+using Adherium.Domain.Patients;
 using Adherium.Infra;
 using FastEndpoints;
 
-namespace Adherium.Api.Features.Onboarding.RegisterPatient;
+namespace Adherium.Api.Features.Patients.RegisterPatient;
 
 public class Endpoint(AppDb db, EventPublisher eventPublisher) : Endpoint<Request>
 {

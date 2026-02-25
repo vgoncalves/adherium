@@ -1,4 +1,6 @@
-namespace Adherium.Domain.Treatments;
+using Adherium.Domain.Devices;
+
+namespace Adherium.Domain.Prescriptions;
 
 public class AdherenceCalculator
 {
@@ -9,7 +11,7 @@ public class AdherenceCalculator
     /// Score = (total puffs / total expected) * 1000, capped at 1000.
     /// Each puff always increases the score.
     /// </summary>
-    public static decimal CalculateScore(List<Event> puffInhaledEvents, DateTime today)
+    public static decimal CalculateScore(List<DeviceEvent> puffInhaledEvents, DateTime today)
     {
         if (puffInhaledEvents.Count == 0)
             return 0m;

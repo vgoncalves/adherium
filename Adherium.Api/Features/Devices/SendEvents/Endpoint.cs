@@ -1,16 +1,15 @@
 using Adherium.Domain.Auth;
-using Adherium.Domain.Auth.Services;
-using Adherium.Domain.Treatments;
+using Adherium.Domain.Devices;
 using Adherium.Infra;
 using FastEndpoints;
 
-namespace Adherium.Api.Features.Treatments.SendEvents;
+namespace Adherium.Api.Features.Devices.SendEvents;
 
 public class Endpoint(AppDb db, AuthorizationService authorizationService) : Endpoint<Request>
 {
     public override void Configure()
     {
-        Post("/treatments/{id}/events");
+        Post("/devices/{id}/events");
         Roles(nameof(UserRole.Patient));
     }
 
@@ -25,12 +24,12 @@ public class Endpoint(AppDb db, AuthorizationService authorizationService) : End
         }
 
         var events = request.Events
-            .Select(e => new Event
+            .Select(e => new DeviceEvent
             {
                 Id = e.EventId,
                 TreatmentId = request.TreatmentId,
                 Timestamp = e.Timestamp,
-                Type = Enum.Parse<EventType>(e.EventType)
+                Type = Enum.Parse<DeviceEventType>(e.EventType)
             });
 
         await db.TreatmentEvents.AddRangeAsync(events, ct);

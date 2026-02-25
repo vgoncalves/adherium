@@ -1,6 +1,7 @@
 ﻿using Adherium.Domain.Auth;
-using Adherium.Domain.Onboarding;
-using Adherium.Domain.Treatments;
+using Adherium.Domain.Devices;
+using Adherium.Domain.Patients;
+using Adherium.Domain.Prescriptions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Adherium.Infra;
@@ -11,7 +12,7 @@ public class AppDb : DbContext
     
     public DbSet<User> Users { get; set; }
 
-    public DbSet<Treatment> Treatments { get; set; }
+    public DbSet<Prescription> Treatments { get; set; }
     
-    public DbSet<Event> TreatmentEvents { get; set; }
+    public DbSet<DeviceEvent> TreatmentEvents { get; set; }
 }

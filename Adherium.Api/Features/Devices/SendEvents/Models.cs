@@ -1,4 +1,4 @@
-﻿namespace Adherium.Api.Features.Treatments.SendEvents;
+﻿namespace Adherium.Api.Features.Devices.SendEvents;
 
 public record Request(Guid TreatmentId, List<Request.Event> Events)
 {

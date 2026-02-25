@@ -1,4 +1,4 @@
-﻿namespace Adherium.Domain.Onboarding;
+﻿namespace Adherium.Domain.Devices;
 
 public class Device
 {

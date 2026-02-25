@@ -1,6 +1,6 @@
 ﻿using Adherium.Domain.Auth;
 
-namespace Adherium.Domain.Onboarding;
+namespace Adherium.Domain.Patients;
 
 public class Patient : User
 {

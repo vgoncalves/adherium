@@ -1,4 +1,4 @@
-﻿using Adherium.Domain.Onboarding.Events;
+﻿using Adherium.Domain.Patients;
 using Azure.Messaging.ServiceBus;
 using Microsoft.Azure.Functions.Worker;
 

@@ -1,6 +1,8 @@
-﻿namespace Adherium.Domain.Treatments;
+﻿using Adherium.Domain.Devices;
 
-public class Treatment
+namespace Adherium.Domain.Prescriptions;
+
+public class Prescription
 {
     public Guid Id { get; set; }
 
@@ -12,5 +14,5 @@ public class Treatment
 
     public DateTime? EndDate { get; set; }
 
-    public virtual List<Event> Events { get; set; } = [];
+    public virtual List<DeviceEvent> Events { get; set; } = [];
 }

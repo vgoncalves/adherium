@@ -2,7 +2,6 @@ using System.Globalization;
 using System.Security.Claims;
 using System.Text.Json;
 using Adherium.Domain.Auth;
-using Adherium.Domain.Onboarding;
 
 namespace Adherium.Api.Shared;
 

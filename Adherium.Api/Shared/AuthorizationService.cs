@@ -1,7 +1,7 @@
 ﻿using Adherium.Infra;
 using Microsoft.EntityFrameworkCore;
 
-namespace Adherium.Domain.Auth.Services;
+namespace Adherium.Api.Shared;
 
 public class AuthorizationService(AppDb appDb)
 {

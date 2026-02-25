@@ -1,7 +1,7 @@
 ﻿using FastEndpoints;
 using FluentValidation;
 
-namespace Adherium.Api.Features.Onboarding.RegisterPatient;
+namespace Adherium.Api.Features.Patients.RegisterPatient;
 
 public class Validator : Validator<Request>
 {
