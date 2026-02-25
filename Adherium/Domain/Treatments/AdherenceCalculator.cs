@@ -26,3 +26,4 @@ public class AdherenceCalculator
         return Math.Round(Math.Min(score, 1m) * 1000);
     }
 }
+
