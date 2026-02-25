@@ -13,5 +13,5 @@ public class AppDb : DbContext
 
     public DbSet<Treatment> Treatments { get; set; }
     
-    public DbSet<TreatmentEvent> TreatmentEvents { get; set; }
+    public DbSet<Event> TreatmentEvents { get; set; }
 }

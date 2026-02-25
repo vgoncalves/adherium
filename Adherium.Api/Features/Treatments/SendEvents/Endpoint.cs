@@ -25,7 +25,7 @@ public class Endpoint(AppDb db, AuthorizationService authorizationService) : End
         }
 
         var events = request.Events
-            .Select(e => new TreatmentEvent
+            .Select(e => new Event
             {
                 Id = e.EventId,
                 TreatmentId = request.TreatmentId,

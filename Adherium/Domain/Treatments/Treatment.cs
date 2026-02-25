@@ -12,5 +12,5 @@ public class Treatment
 
     public DateTime? EndDate { get; set; }
 
-    public virtual List<TreatmentEvent> Events { get; set; } = [];
+    public virtual List<Event> Events { get; set; } = [];
 }

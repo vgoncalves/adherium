@@ -1,6 +1,6 @@
 namespace Adherium.Domain.Treatments;
 
-public class TreatmentEvent
+public class Event
 {
     public required Guid Id { get; set; }
 
