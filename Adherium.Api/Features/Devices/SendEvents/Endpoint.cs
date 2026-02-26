@@ -1,11 +1,12 @@
 using Adherium.Domain.Auth;
 using Adherium.Domain.Devices;
+using Adherium.Domain.Devices.Services;
 using Adherium.Infra;
 using FastEndpoints;
 
 namespace Adherium.Api.Features.Devices.SendEvents;
 
-public class Endpoint(AppDb db, AuthorizationService authorizationService) : Endpoint<Request>
+public class Endpoint(AuthorizationService authorizationService, AppDb appDb) : Endpoint<Request>
 {
     public override void Configure()
     {
@@ -17,23 +18,23 @@ public class Endpoint(AppDb db, AuthorizationService authorizationService) : End
     {
         var user = User.Map();
 
-        if(!await authorizationService.IsTreatmentOwnedByUser(request.TreatmentId, user.Id))
+        if(!await authorizationService.IsDeviceAssignedToPatient(request.DeviceId, user.Id))
         {
             await Send.ForbiddenAsync(ct);
             return;
         }
 
-        var events = request.Events
+        var events = request.DeviceEvents
             .Select(e => new DeviceEvent
             {
-                Id = e.EventId,
-                TreatmentId = request.TreatmentId,
+                Id = e.DeviceEventId,
                 Timestamp = e.Timestamp,
                 Type = Enum.Parse<DeviceEventType>(e.EventType)
-            });
+            })
+            .ToList();
 
-        await db.TreatmentEvents.AddRangeAsync(events, ct);
-        await db.SaveChangesAsync(ct);
+        await appDb.DeviceEvents.AddRangeAsync(events, ct);
+        await appDb.SaveChangesAsync(ct);
         
         await Send.OkAsync(cancellation: ct);
     }

@@ -1,10 +1,9 @@
 ﻿namespace Adherium.Api.Features.Devices.SendEvents;
 
-public record Request(Guid TreatmentId, List<Request.Event> Events)
+public record Request(Guid DeviceId, List<Request.DeviceEvent> DeviceEvents)
 {
-    public record Event(
-        Guid EventId,
-        Guid DeviceId, 
+    public record DeviceEvent(
+        Guid DeviceEventId,
         DateTime Timestamp,
         string EventType
     );

@@ -8,10 +8,9 @@ public class Validator : Validator<Request>
 {
     public Validator()
     {
-        RuleForEach(x => x.Events).ChildRules(events =>
+        RuleForEach(x => x.DeviceEvents).ChildRules(events =>
         {
-            events.RuleFor(e => e.EventId).NotEmpty();
-            events.RuleFor(e => e.DeviceId).NotEmpty();
+            events.RuleFor(e => e.DeviceEventId).NotEmpty();
             events.RuleFor(e => e.EventType)
                 .NotEmpty()
                 .Must(x => Enum.TryParse<DeviceEventType>(x, out _))
