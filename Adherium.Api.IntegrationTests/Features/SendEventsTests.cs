@@ -1,7 +1,7 @@
 using System.Net;
-using Adherium.Api.Features.Treatment.SendUsageEvents;
-using Adherium.Domain.Treatments;
-using Adherium.Infra;
+using Adherium.Api.Features.SendEvents;
+using Adherium.Api.Shared.Domain;
+using Adherium.Api.Shared.Infra;
 using FastEndpoints;
 using Shouldly;
 

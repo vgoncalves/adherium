@@ -33,6 +33,17 @@ The main win: when you need to change something, you touch one folder instead of
 
 More on this: https://www.youtube.com/watch?v=o82JG0fY_oY
 
+### Data Access Policy
+
+We use a simple rule to decide where data access lives:
+
+- **Reusable logic or business rules** → `Adherium/Domain/` as a focused service (e.g. `DeviceService`, `AuthorizationService`). These services consume `AppDb` and are shared across features.
+- **Feature-specific queries and projections** → `AppDb` accessed directly inside the endpoint, using LINQ `Select` to project straight into the feature's `Response` type. No mapper, no intermediate DTO.
+
+The guiding question: *"Could another feature need this?"* If yes, it belongs in a Domain service. If no, it stays inside the feature folder.
+
+This keeps domain logic protected without the overhead of generic repositories or redundant service abstractions.
+
 ### FastEndpoints
 
 I chose FastEndpoints because it gives you the performance of minimal APIs with better structure. Each endpoint is a class with clear request/response types, built-in validation, and easy dependency injection. It also implements the Open Closed Principle.
